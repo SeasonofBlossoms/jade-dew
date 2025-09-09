@@ -1,0 +1,9 @@
+$unit: 1px;
+
+$navbar-height-raw: 70;
+$navbar-height: $navbar-height-raw * $unit; //导航条高度
+
+:export {
+  navbarheightraw: $navbar-height-raw;
+  navbarheight: $navbar-height;
+}

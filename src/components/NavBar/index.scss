@@ -1,0 +1,256 @@
+@use "../../style/common.module.scss" as common;
+@use "../../style/navbar.module.scss" as navbar;
+
+.nav_bar {
+  position: fixed;
+  top: 0;
+  background-color: #fff;
+  height: #{navbar.$navbar-height};
+  width: 100%;
+  .container {
+    margin: 0 auto;
+    height: 100%;
+    justify-content: space-between;
+    .logo {
+      .logo_img {
+        margin-right: 7px;
+      }
+      .logo_text {
+        font-size: 21px;
+        color: #333;
+        font-weight: 700;
+      }
+    }
+    .nav_list {
+      justify-content: space-between;
+      gap: 28px;
+      /* 导航链接动画 */
+      .nav_link {
+        position: relative;
+      }
+
+      .nav_link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: #3a6351;
+        transition: width 0.3s ease;
+      }
+
+      .nav_link:hover::after {
+        width: 100%;
+      }
+    }
+    .search_button {
+      button {
+        cursor: pointer;
+        width: 24px;
+        height: 40px;
+        border-radius: 12px;
+        border: none;
+        background-color: #fff;
+        &:hover {
+          background-color: #e5e7eb; /* Neutral-200 */
+        }
+      }
+    }
+  }
+}
+
+/* 文章卡片悬停效果 */
+.article-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.h-16 {
+  height: 4rem; /* 64px */
+}
+
+.h-20 {
+  height: 5rem; /* 80px */
+}
+
+@media (min-width: 768px) {
+  .md\:h-20 {
+    height: 5rem; /* 80px */
+  }
+}
+
+.text-primary {
+  color: var(
+    --primary-color
+  ); /* Assume custom primary color is defined in the root */
+}
+
+.text-2xl {
+  font-size: 1.5rem; /* 24px */
+}
+
+.text-xl {
+  font-size: 1.25rem; /* 20px */
+}
+
+.mr-2 {
+  margin-right: 0.5rem; /* 8px */
+}
+
+// .font_serif {
+//   font-family: serif;
+// }
+
+.font-bold {
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .md\:text-2xl {
+    font-size: 1.5rem; /* 24px */
+  }
+}
+
+.tracking-tight {
+  letter-spacing: -0.01562em; /* -0.25px */
+}
+
+.hidden {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .md\:flex {
+    display: flex;
+  }
+}
+
+.space-x-8 {
+  margin-left: -2rem; /* -32px */
+}
+
+.space-x-8 > * + * {
+  margin-left: 2rem; /* 32px */
+}
+
+.hover\:text-primary:hover {
+  color: var(--primary-color);
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.p-2 {
+  padding: 0.5rem; /* 8px */
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.hover\:bg-neutral-200:hover {
+  background-color: #e5e7eb; /* Neutral-200 */
+}
+
+.text-neutral-600 {
+  color: #4b5563; /* Neutral-600 */
+}
+
+@media (min-width: 768px) {
+  .md\:hidden {
+    display: none;
+  }
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.border-t {
+  border-top-width: 1px;
+}
+
+.border-neutral-200 {
+  border-color: #e5e7eb; /* Neutral-200 */
+}
+
+.py-3 {
+  padding-top: 0.75rem; /* 12px */
+  padding-bottom: 0.75rem; /* 12px */
+}
+
+.py-4 {
+  padding-top: 1rem; /* 16px */
+  padding-bottom: 1rem; /* 16px */
+}
+
+.relative {
+  position: relative;
+}
+
+.max-w-2xl {
+  max-width: 42rem; /* 672px */
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pr-10 {
+  padding-right: 2.5rem; /* 40px */
+}
+
+.focus\:outline-none:focus {
+  outline: none;
+}
+
+.focus\:ring-2:focus {
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.5); /* Primary color with alpha */
+}
+
+.focus\:ring-primary\/30:focus {
+  box-shadow: 0 0 0 2px rgba(var(--primary-color), 0.3);
+}
+
+.focus\:border-primary:focus {
+  border-color: var(--primary-color);
+}
+
+.text-sm {
+  font-size: 0.875rem; /* 14px */
+}
+
+.text-neutral-500 {
+  color: #6b7280; /* Neutral-500 */
+}
+
+.hover\:underline:hover {
+  text-decoration: underline;
+}
+
+.mx-1 {
+  margin-left: 0.25rem; /* 4px */
+  margin-right: 0.25rem; /* 4px */
+}
+
+.transform {
+  transform: translateY(-50%);
+}

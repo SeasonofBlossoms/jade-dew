@@ -1,3 +1,4 @@
+@use "../style/navbar.module.scss" as navbar;
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -39,4 +40,8 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+main {
+  padding-top: #{navbar.$navbar-height};
 }

@@ -1,0 +1,26 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@mixin flex {
+  display: flex;
+}
+.flex {
+  @include flex;
+}
+.fac {
+  @include flex;
+  align-items: center;
+}
+.fajc {
+  @extend .fac;
+  justify-content: center;
+}
+.font_serif {
+  font-family: "Noto Serif SC", serif;
+}
+.transition-custom {
+  transition: all 0.3s ease-in-out;
+}
