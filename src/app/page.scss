@@ -1,20 +1,20 @@
-// @use "../../style/common.module.scss" as common;
+@use "../style/common.module.scss" as common;
 .home {
   /* 1. section 样式 */
   .show {
     background-color: rgb(248, 246, 240);
     .container {
-      padding: 50px 0 84px;
+      padding: 55px 0 90px;
       .show_description {
         flex-direction: column;
         h1 {
           font-size: 50px;
           color: #1a1a1a;
-          margin-bottom: 21px;
+          margin-bottom: 33px;
         }
         p {
-          margin-bottom: 30px;
-          font-size: 18px;
+          margin-bottom: 45px;
+          font-size: 20px;
         }
         .articles,
         .about {
@@ -24,7 +24,7 @@
         }
         .articles {
           background-color: #3a6351;
-          margin-right: 10px;
+          margin-right: 14px;
           color: #fff;
         }
         .about {
@@ -35,7 +35,174 @@
       }
     }
   }
-
+  .latest_articles {
+    margin-bottom: 56px;
+    .description {
+      margin-bottom: 42px;
+      margin-top: 56px;
+      .title {
+        font-weight: bold;
+        font-size: 26px;
+        color: #333333;
+        line-height: 32px;
+        margin-bottom: 10px;
+      }
+      .description_info {
+        justify-content: space-between;
+        .info {
+          font-size: 14px;
+          color: #666666;
+          line-height: 22px;
+        }
+        .readall {
+          font-size: 14px;
+          color: #3b6351;
+          line-height: 22px;
+        }
+      }
+    }
+    .article_list {
+      justify-content: space-between;
+      .article_item {
+        border: 1px solid rgb(232, 228, 217);
+        position: relative;
+        width: 300px;
+        height: 400px;
+        border-radius: 10px;
+        overflow: hidden;
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+            rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+            rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+            rgba(0, 0, 0, 0.1) 0px 2px 4px -2px;
+        }
+        .article_type {
+          z-index: 1;
+          width: 64px;
+          height: 22px;
+          position: absolute;
+          top: 14px;
+          left: 14px;
+          border-radius: 11px;
+          font-size: 12px;
+          color: #fff;
+          background-color: #3a6351;
+        }
+        .article_img {
+          position: relative;
+          height: 168px;
+          // &:hover {
+          //   img {
+          //     transform: matrix(1.1, 0, 0, 1.1, 0, 0);
+          //     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          //   }
+          // }
+        }
+        .article_content {
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          .article_date {
+            font-size: 12px;
+            color: #737373;
+            line-height: 18px;
+            margin-bottom: 10px;
+          }
+          .article_title {
+            height: 50px;
+            font-size: 18px;
+            margin-bottom: 10px;
+            @include common.truncate_text(2);
+          }
+          .article_desciption {
+            flex: 1;
+            margin-bottom: 15px;
+            font-size: 14px;
+            @include common.truncate_text(3);
+          }
+          .toArticleDetail {
+            padding: 0;
+            font-size: 14px;
+            line-height: 21px;
+            color: #3a6351;
+          }
+        }
+      }
+    }
+  }
+  .special {
+    background-color: rgb(248, 246, 240);
+    .description {
+      h2 {
+        font-weight: bold;
+        font-size: 26px;
+        color: rgb(51, 51, 51);
+        line-height: 32px;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+      p {
+        text-align: center;
+        line-height: 22px;
+        color: rgb(82, 82, 82);
+        margin-bottom: 42px;
+      }
+    }
+    .special_list {
+      justify-content: space-between;
+      margin-bottom: 56px;
+      .special_item {
+        background-color: #fff;
+        width: 470px;
+        height: 325px;
+        border-radius: 10px;
+        overflow: hidden;
+        .left_img {
+          height: 100%;
+          width: 156px;
+          position: relative;
+          span {
+            white-space: nowrap;
+            text-align: center;
+            z-index: 1;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            line-height: 28px;
+            font-weight: bold;
+            color: #fff;
+            font-size: 22px;
+          }
+        }
+        .right_content {
+          flex: 1;
+          padding: 20px;
+          h3 {
+            margin-bottom: 14px;
+            line-height: 24px;
+            font-size: 18px;
+          }
+          p {
+            margin-bottom: 14px;
+            line-height: 22px;
+          }
+          ul {
+            li {
+              list-style: none;
+              line-height: 22px;
+            }
+          }
+          .to_all {
+            margin-top: 21px;
+            line-height: 22px;
+            color: #3a6351;
+          }
+        }
+      }
+    }
+  }
   /* 3. max-w-4xl 样式 */
   .max-w-4xl {
     max-width: 56rem; /* max-w-4xl */
@@ -123,7 +290,7 @@
   }
 
   /* 8. 自定义过渡效果 */
-  .transition-custom {
-    transition: all 0.3s ease-in-out; /* transition-custom */
+  .transition_custom {
+    transition: all 0.3s ease-in-out; /* transition_custom */
   }
 }

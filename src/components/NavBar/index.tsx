@@ -37,7 +37,7 @@ export default function NavBar() {
           </Link>
         </div>
         <div className="fac search_button">
-          <button id="searchBtn" className="fajc transition-custom">
+          <button id="searchBtn" className="fajc transition_custom">
             <Image
               width={24}
               height={24}

@@ -21,6 +21,13 @@
 .font_serif {
   font-family: "Noto Serif SC", serif;
 }
-.transition-custom {
+.transition_custom {
   transition: all 0.3s ease-in-out;
+}
+@mixin truncate_text($lines: 1) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
