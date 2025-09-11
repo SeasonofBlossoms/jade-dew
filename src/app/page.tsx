@@ -6,7 +6,7 @@ import PickaxeIcon from "@/icons/pickaxe.svg";
 export default function Home() {
   return (
     <div className="home">
-      {/* <section className="show">
+      <section className="show">
         <div className="container">
           <div className="show_description fac">
             <h1 className="font_serif">
@@ -17,7 +17,7 @@ export default function Home() {
               <Link className="articles" href="#articles">
                 浏览文章
               </Link>
-              <Link className="about" href="#about">
+              <Link className="about_author" href="#about">
                 关于博主
               </Link>
             </div>
@@ -60,8 +60,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section> */}
-      {/* <section className="special">
+      </section>
+      <section className="special">
         <div className="container">
           <div className="description">
             <h2 className="font_serif">特色内容</h2>
@@ -93,8 +93,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section> */}
-      {/* <div className="classification">
+      </section>
+      <div className="classification">
         <div className="container">
           <div className="description">
             <h2 className="font_serif">内容分类</h2>
@@ -118,8 +118,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div> */}
-      {/* <div className="my_project">
+      </div>
+      <div className="my_project">
         <div className="container">
           <div className="description">
             <h2 className="font_serif">个人项目</h2>
@@ -154,7 +154,7 @@ export default function Home() {
             <div className="project_item">3</div>
           </div>
         </div>
-      </div> */}
+      </div>
       <div className="about">
         <div className="container">
           <div className="flex info">
