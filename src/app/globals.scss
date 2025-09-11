@@ -45,3 +45,8 @@ a {
 main {
   padding-top: #{navbar.$navbar-height};
 }
+ul {
+  li {
+    list-style: none;
+  }
+}
