@@ -1,15 +1,15 @@
 @use "../style/navbar.module.scss" as navbar;
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+// :root {
+//   --background: #ffffff;
+//   --foreground: #171717;
+// }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     --background: #0a0a0a;
+//     --foreground: #ededed;
+//   }
+// }
 
 html,
 body {
@@ -36,17 +36,31 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
+// @media (prefers-color-scheme: dark) {
+//   html {
+//     color-scheme: dark;
+//   }
+// }
 
 main {
-  padding-top: #{navbar.$navbar-height};
+  // padding-top: #{navbar.$navbar-height};
+  transform: translateY(#{navbar.$navbar-height});
+  max-height: calc(100vh - #{navbar.$navbar-height});
 }
 ul {
   li {
     list-style: none;
   }
+}
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
 }

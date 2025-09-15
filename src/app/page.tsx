@@ -1,4 +1,3 @@
-import React from "react";
 import "../style/common.module.scss";
 import "./page.scss";
 import {
@@ -12,7 +11,7 @@ import {
 
 export default function main() {
   return (
-    <div className="main">
+    <div className="main" id="main">
       <Home />
       <Articles />
       <Special />

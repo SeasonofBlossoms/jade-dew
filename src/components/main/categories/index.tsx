@@ -2,7 +2,7 @@ import Link from "next/link";
 import "./index.scss";
 export default function Categories() {
   return (
-    <div className="categories">
+    <div className="categories" id="categories">
       <div className="container">
         <div className="description">
           <h2 className="font_serif">内容分类</h2>

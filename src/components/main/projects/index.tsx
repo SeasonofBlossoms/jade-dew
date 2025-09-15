@@ -3,7 +3,7 @@ import Link from "next/link";
 import "./index.scss";
 export default function Projects() {
   return (
-    <div className="projects">
+    <div className="projects" id="projects">
       <div className="container">
         <div className="description">
           <h2 className="font_serif">个人项目</h2>

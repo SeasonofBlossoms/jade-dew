@@ -3,7 +3,7 @@ import Link from "next/link";
 import "./index.scss";
 export default function Articles() {
   return (
-    <section className="articles">
+    <section className="articles" id="articles">
       <div className="container">
         <div className="description">
           <div className="title font_serif">最新文章</div>

@@ -2,7 +2,7 @@ import Image from "next/image";
 import "./index.scss";
 export default function Special() {
   return (
-    <section className="special">
+    <section className="special" id="special">
       <div className="container">
         <div className="description">
           <h2 className="font_serif">特色内容</h2>

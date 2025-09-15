@@ -3,7 +3,7 @@ import PickaxeIcon from "/public/pickaxe.svg";
 import "./index.scss";
 export default function About() {
   return (
-    <div className="about">
+    <div className="about" id="about">
       <div className="container">
         <div className="flex info">
           <div className="left_img">

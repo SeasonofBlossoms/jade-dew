@@ -2,7 +2,7 @@ import Link from "next/link";
 import "./index.scss";
 export default function Home() {
   return (
-    <section className="home">
+    <section className="home" id="home">
       <div className="container">
         <div className="show_description fac">
           <h1 className="font_serif">
