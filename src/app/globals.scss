@@ -44,7 +44,7 @@ a {
 
 main {
   height: 100vh;
-  padding-top: #{navbar.$navbar-height};
+  padding: #{navbar.$navbar-height} calc((100vw - 1200px) / 2);
   // transform: translateY(#{navbar.$navbar-height});
   // max-height: calc(100vh - #{navbar.$navbar-height});
 }

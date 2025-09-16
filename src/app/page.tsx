@@ -11,13 +11,13 @@ import {
 
 export default function main() {
   return (
-    <div className="main" id="main">
+    <>
       <Home />
       <Articles />
       <Special />
       <Categories />
       <Projects />
       <About />
-    </div>
+    </>
   );
 }
