@@ -43,9 +43,10 @@ a {
 // }
 
 main {
-  // padding-top: #{navbar.$navbar-height};
-  transform: translateY(#{navbar.$navbar-height});
-  max-height: calc(100vh - #{navbar.$navbar-height});
+  height: 100vh;
+  padding-top: #{navbar.$navbar-height};
+  // transform: translateY(#{navbar.$navbar-height});
+  // max-height: calc(100vh - #{navbar.$navbar-height});
 }
 ul {
   li {

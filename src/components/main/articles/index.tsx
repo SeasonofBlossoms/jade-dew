@@ -9,7 +9,11 @@ export default function Articles() {
           <div className="title font_serif">最新文章</div>
           <div className="description_info fac">
             <div className="info">最近的思考与记录</div>
-            <div className="readall">查看全部文章</div>
+            <div className="readall">
+              <Link rel="stylesheet" href="/article">
+                查看全部文章
+              </Link>
+            </div>
           </div>
         </div>
         <div className="article_list fac">
@@ -32,7 +36,7 @@ export default function Articles() {
               <p className="article_desciption">
                 采用自然绿色作为主色调，搭配温暖的橙色作为辅助色，营造出舒适、宁静而不失活力的氛围，适合展示多样化的内容。
               </p>
-              <Link className="toArticleDetail" href="#articleDetail">
+              <Link className="toArticleDetail" href={`/article/${1}`}>
                 阅读全文
               </Link>
             </div>

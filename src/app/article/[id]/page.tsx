@@ -1,3 +1,3 @@
 export default function Page() {
-  return <h1>编辑用户</h1>;
+  return <h1>用户详情</h1>;
 }
