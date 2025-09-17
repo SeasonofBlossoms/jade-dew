@@ -5,6 +5,7 @@ export interface Article {
     description?: string;
     created_at: string;
     updated_at: string;
+    [x: string]: any
 }
 
 export interface CreateArticleRequest {

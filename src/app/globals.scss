@@ -1,4 +1,4 @@
-@use "../style/navbar.module.scss" as navbar;
+@use "../style/common.module.scss" as common;
 // :root {
 //   --background: #ffffff;
 //   --foreground: #171717;
@@ -42,9 +42,11 @@ a {
 //   }
 // }
 
-main {
+.app-main {
   height: 100vh;
-  padding: #{navbar.$navbar-height} calc((100vw - 1200px) / 2);
+  padding: #{common.$navbar-height} calc((100vw - #{common.$container-width}) /
+        2);
+  padding-bottom: 0;
   // transform: translateY(#{navbar.$navbar-height});
   // max-height: calc(100vh - #{navbar.$navbar-height});
 }

@@ -17,8 +17,13 @@ export default function NavBar() {
     { navName: "分类", routePath: "categories" },
     { navName: "项目", routePath: "projects" },
     { navName: "关于", routePath: "about" },
+    { navName: "控制台", routePath: "control" },
   ];
   function clickNav(item: NavItem) {
+    if (item.routePath == "control") {
+      router.push(item.routePath);
+      return;
+    }
     if (pathName === "/") {
       const element = document.getElementById(item.routePath);
       if (element) {

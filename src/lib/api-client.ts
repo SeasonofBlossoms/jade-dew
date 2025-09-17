@@ -83,7 +83,7 @@ class ApiClient {
         );
       }
 
-      return data.data as T;
+      return data as T;
     }
 
     return await response.text() as unknown as T;

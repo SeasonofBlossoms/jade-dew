@@ -17,13 +17,17 @@ const inter = Inter({
   display: "swap",
 });
 
-export default function RootLayout({ children }: React.PropsWithChildren) {
+export default function RootLayoutRootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body className={`${notoSerifSC.className} ${inter.className}`}>
         <AntdRegistry>
           <NavBar></NavBar>
-          <main>{children}</main>
+          <main className="app-main ">{children}</main>
         </AntdRegistry>
       </body>
     </html>

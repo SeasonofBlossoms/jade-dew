@@ -3,7 +3,10 @@ $unit: 1px;
 $navbar-height-raw: 70;
 $navbar-height: $navbar-height-raw * $unit; //导航条高度
 
+$container-width-raw: 1200;
+$container-width: $container-width-raw * $unit;
 :export {
-  navbarheightraw: $navbar-height-raw;
+  navbarheightRaw: $navbar-height-raw;
   navbarheight: $navbar-height;
+  containerWidth: $container-width;
 }

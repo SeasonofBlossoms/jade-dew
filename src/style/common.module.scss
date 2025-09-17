@@ -1,3 +1,15 @@
+$unit: 1px;
+
+$navbar-height-raw: 70;
+$navbar-height: $navbar-height-raw * $unit; //导航条高度
+
+$container-width-raw: 1200;
+$container-width: $container-width-raw * $unit;
+:export {
+  navbarheightRaw: $navbar-height-raw;
+  navbarheight: $navbar-height;
+  containerWidth: $container-width;
+}
 @mixin flex {
   display: flex;
 }
