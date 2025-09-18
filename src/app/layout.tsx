@@ -1,23 +1,11 @@
 import "./globals.scss";
-import NavBar from "@/components/NavBar";
-import { Noto_Serif_SC, Inter } from "next/font/google";
 import React from "react";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
-// 配置中文字体
-const notoSerifSC = Noto_Serif_SC({
-  weight: ["400", "500", "600", "700"],
-  subsets: ["latin"],
-  display: "swap",
-});
+import "@ant-design/v5-patch-for-react-19";
+import "bytemd/dist/index.css";
+import { notoSerifSC, inter } from "./layoutConfig";
 
-// 配置英文字体
-const inter = Inter({
-  weight: ["300", "400", "500", "600"],
-  subsets: ["latin"],
-  display: "swap",
-});
-
-export default function RootLayoutRootLayout({
+export default function RootBlogLayoutRootLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -25,10 +13,7 @@ export default function RootLayoutRootLayout({
   return (
     <html lang="en">
       <body className={`${notoSerifSC.className} ${inter.className}`}>
-        <AntdRegistry>
-          <NavBar></NavBar>
-          <main className="app-main ">{children}</main>
-        </AntdRegistry>
+        <AntdRegistry>{children}</AntdRegistry>
       </body>
     </html>
   );

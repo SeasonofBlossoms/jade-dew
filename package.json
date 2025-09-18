@@ -11,6 +11,9 @@
   "dependencies": {
     "@ant-design/icons": "^6.0.2",
     "@ant-design/nextjs-registry": "^1.1.0",
+    "@ant-design/v5-patch-for-react-19": "^1.0.3",
+    "@bytemd/plugin-gfm": "^1.22.0",
+    "@bytemd/react": "^1.22.0",
     "antd": "^5.27.4",
     "next": "15.5.2",
     "react": "19.1.0",
