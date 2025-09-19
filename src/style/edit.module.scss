@@ -1,4 +1,8 @@
 .edit {
+  height: 100%;
   background-color: #fff;
-  padding: 24px;
+  padding: 24px 24px 0;
+  .bytemd {
+    height: calc(100vh - 100px);
+  }
 }

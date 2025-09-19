@@ -104,7 +104,13 @@ export default function Posts() {
     <div className="container">
       {messageContextHolder}
       {modalContextHolder}
-      <Button href="/control/article/new/edit">新增</Button>
+      <Button
+        onClick={() => {
+          operaClick("edit");
+        }}
+      >
+        新增
+      </Button>
       <Table<Article> columns={columns} dataSource={articles} />
     </div>
   );

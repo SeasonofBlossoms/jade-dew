@@ -2,7 +2,7 @@ import "./globals.scss";
 import React from "react";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import "@ant-design/v5-patch-for-react-19";
-import "bytemd/dist/index.css";
+
 import { notoSerifSC, inter } from "./layoutConfig";
 
 export default function RootBlogLayoutRootLayout({
