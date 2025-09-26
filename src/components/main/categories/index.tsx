@@ -3,7 +3,7 @@ import "./index.scss";
 export default function Categories() {
   return (
     <div className="categories" id="categories">
-      <div className="description">
+      <div className="content">
         <h2 className="font_serif">内容分类</h2>
         <p>探索不同主题的文章内容</p>
       </div>

@@ -5,6 +5,7 @@ import articleService from "@/services/articleService";
 import { Button, Table, Flex, Dropdown, Modal, message } from "antd";
 import type { TableProps } from "antd";
 import { useRouter } from "next/navigation";
+import { windowOpen } from "@/utils/index";
 export default function Posts() {
   const router = useRouter();
   const [articles, setArticles] = useState<Article[]>([]);
@@ -73,8 +74,8 @@ export default function Posts() {
     },
     {
       title: "描述",
-      dataIndex: "description",
-      key: "description",
+      dataIndex: "content",
+      key: "content",
     },
     {
       title: "操作",
@@ -106,7 +107,7 @@ export default function Posts() {
       {modalContextHolder}
       <Button
         onClick={() => {
-          operaClick("edit");
+          windowOpen("/editor/drafts/new");
         }}
       >
         新增

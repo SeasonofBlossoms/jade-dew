@@ -4,9 +4,9 @@ import "./index.scss";
 export default function Articles() {
   return (
     <section className="articles" id="articles">
-      <div className="description">
+      <div className="content">
         <div className="title font_serif">最新文章</div>
-        <div className="description_info fac">
+        <div className="content_info fac">
           <div className="info">最近的思考与记录</div>
           <div className="readall">
             <Link rel="stylesheet" href="/article">

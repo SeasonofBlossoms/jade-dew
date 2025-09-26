@@ -2,7 +2,7 @@
 export interface Article {
     id: number;
     title: string;
-    description?: string;
+    content?: string;
     created_at: string;
     updated_at: string;
     [x: string]: any
@@ -10,12 +10,12 @@ export interface Article {
 
 export interface CreateArticleRequest {
     title: string;
-    description?: string;
+    content?: string;
 }
 
 export interface UpdateArticleRequest {
     title?: string;
-    description?: string;
+    content?: string;
 }
 
 export interface ArticleFilters {

@@ -22,8 +22,8 @@ export default function EditArticle() {
     try {
       console.log("提交的数据:", values);
       // 这里调用 API 提交数据
-      // const res = await articleService.createArticle(values);
-      // console.log(res);
+      const res = await articleService.createArticle(values);
+      console.log(res);
       // message.success("文章发布成功");
     } catch (error) {
       console.error("提交失败:", error);

@@ -1,6 +1,6 @@
 @use "../../../style/common.module.scss" as common;
 .articles {
-  .description {
+  .content {
     margin-bottom: 42px;
     .title {
       font-weight: bold;
@@ -9,7 +9,7 @@
       line-height: 32px;
       margin-bottom: 10px;
     }
-    .description_info {
+    .content_info {
       justify-content: space-between;
       .info {
         font-size: 14px;

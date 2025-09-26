@@ -3,7 +3,7 @@ import "./index.scss";
 export default function Special() {
   return (
     <section className="special" id="special">
-      <div className="description">
+      <div className="content">
         <h2 className="font_serif">特色内容</h2>
         <p>精选的深度文章和系列内容</p>
       </div>

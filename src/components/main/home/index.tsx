@@ -3,7 +3,7 @@ import "./index.scss";
 export default function Home() {
   return (
     <section className="home" id="home">
-      <div className="show_description fac">
+      <div className="show_content fac">
         <h1 className="font_serif">
           记录生活与思考的<span className="text-primary">个人空间</span>
         </h1>

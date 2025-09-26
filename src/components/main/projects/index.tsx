@@ -4,7 +4,7 @@ import "./index.scss";
 export default function Projects() {
   return (
     <div className="projects" id="projects">
-      <div className="description">
+      <div className="content">
         <h2 className="font_serif">个人项目</h2>
         <p>我开发的一些项目和作品</p>
       </div>

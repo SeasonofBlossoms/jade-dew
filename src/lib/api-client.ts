@@ -16,8 +16,8 @@ class ApiClient {
   private baseURL: string;
   private defaultOptions: RequestOptions;
 
-  constructor(baseURL: string = '', defaultOptions: RequestOptions = {}) {
-    this.baseURL = baseURL;
+  constructor(url: string = '', defaultOptions: RequestOptions = {}) {
+    this.baseURL = `${url}/api`;
     this.defaultOptions = {
       headers: {
         'Content-Type': 'application/json',
@@ -236,7 +236,7 @@ class ApiClient {
 }
 
 // 创建实例
-const apiClient = new ApiClient(process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api');
+const apiClient = new ApiClient(process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000');
 
 export { ApiClient, ApiError };
 export default apiClient;
