@@ -73,7 +73,7 @@ export default function Posts() {
       key: "title",
     },
     {
-      title: "描述",
+      title: "内容",
       dataIndex: "content",
       key: "content",
     },

@@ -19,12 +19,34 @@ class ApiClient {
   constructor(url: string = '', defaultOptions: RequestOptions = {}) {
     this.baseURL = `${url}/api`;
     this.defaultOptions = {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      timeout: 10000, // 10秒超时 
+      timeout: 10000,
       ...defaultOptions,
     };
+  }
+
+  private getToken (): string | null {
+    return 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiLmn7PmtKrmtpsiLCJpYXQiOjE3NjA1ODUwNzUsImV4cCI6MTc2MDY3MTQ3NX0.1vPU5YG_A9Zj5ae9dvQzDuuXhh7VXkJ1mlW8L9wJXb8'
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('auth_token') || sessionStorage.getItem('auth_token');
+    }
+    return null;
+  }
+
+  public setToken (token: string, persist: boolean = true): void {
+    if (typeof window !== 'undefined') {
+      if (persist) {
+        localStorage.setItem('auth_token', token);
+      } else {
+        sessionStorage.setItem('auth_token', token);
+      }
+    }
+  }
+
+  public removeToken (): void {
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('auth_token');
+      sessionStorage.removeItem('auth_token');
+    }
   }
 
   private async request<T> (
@@ -35,65 +57,79 @@ class ApiClient {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), options.timeout || this.defaultOptions.timeout);
 
+    // 智能构建 headers
+    const headers: Record<string, string> = {};
+
+    // 1. 按需设置 Content-Type
+    const hasBody = options.body && options.body !== undefined;
+    const isFormData = hasBody && options.body instanceof FormData;
+    const isJsonBody = hasBody && typeof options.body === 'object' && !isFormData;
+
+    if (isJsonBody) {
+      headers['Content-Type'] = 'application/json';
+    }
+
+    // 2. 按需设置认证
+    const token = this.getToken();
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
+    }
+
+    // 3. 合并其他 headers
+    Object.assign(headers, this.defaultOptions.headers, options.headers);
+
     const config: RequestInit = {
       ...this.defaultOptions,
       ...options,
       signal: controller.signal,
-      headers: {
-        ...this.defaultOptions.headers,
-        ...options.headers,
-      },
+      headers,
     };
 
     // 处理请求体
-    if (config.body && typeof config.body === 'object' && !(config.body instanceof FormData)) {
+    if (isJsonBody) {
       config.body = JSON.stringify(config.body);
     }
 
-    const response = await fetch(url, config);
-    clearTimeout(timeoutId);
+    try {
+      const response = await fetch(url, config);
+      clearTimeout(timeoutId);
 
-    // 检查响应状态
-    if (!response.ok) {
-      // 尝试获取错误信息
-      let errorData;
-      try {
-        errorData = await response.json();
-      } catch {
-        errorData = { message: await response.text() };
-      }
+      if (!response.ok) {
+        let errorData;
+        try {
+          errorData = await response.json();
+        } catch {
+          errorData = { message: await response.text() };
+        }
 
-      throw new ApiError(
-        errorData.message || `HTTP error! status: ${response.status}`,
-        response.status,
-        errorData
-      );
-    }
-
-    // 尝试解析响应
-    const contentType = response.headers.get('content-type');
-    if (contentType && contentType.includes('application/json')) {
-      const data: ApiResponse<T> = await response.json();
-
-      if (!data.success) {
         throw new ApiError(
-          data.message || 'API请求失败',
-          data.code,
-          data.errors
+          errorData.message || `HTTP error! status: ${response.status}`,
+          response.status,
+          errorData
         );
       }
 
-      return data as T;
-    }
+      const contentType = response.headers.get('content-type');
+      if (contentType && contentType.includes('application/json')) {
+        const data: ApiResponse<T> = await response.json();
+        return data as T;
+      }
 
-    return await response.text() as unknown as T;
+      return await response.text() as unknown as T;
+    } catch (error) {
+      clearTimeout(timeoutId);
+      if (error instanceof ApiError) {
+        throw error;
+      }
+      throw new ApiError(
+        error instanceof Error ? error.message : '网络请求失败',
+        0,
+        error
+      );
+    }
   }
 
-
-
-
-
-  // GET请求
+  // 简化的方法 - 让浏览器自动处理头部
   get<T = unknown> (endpoint: string, options: RequestOptions = {}): Promise<T> {
     return this.request<T>(endpoint, {
       method: 'GET',
@@ -101,7 +137,6 @@ class ApiClient {
     });
   }
 
-  // POST请求
   post<T = unknown> (endpoint: string, body?: any, options: RequestOptions = {}): Promise<T> {
     return this.request<T>(endpoint, {
       method: 'POST',
@@ -110,7 +145,6 @@ class ApiClient {
     });
   }
 
-  // PUT请求
   put<T = unknown> (endpoint: string, body?: any, options: RequestOptions = {}): Promise<T> {
     return this.request<T>(endpoint, {
       method: 'PUT',
@@ -119,7 +153,6 @@ class ApiClient {
     });
   }
 
-  // DELETE请求
   delete<T = unknown> (endpoint: string, options: RequestOptions = {}): Promise<T> {
     return this.request<T>(endpoint, {
       method: 'DELETE',
@@ -127,6 +160,7 @@ class ApiClient {
     });
   }
 
+  // 文件上传
   // 文件上传
   async uploadFile<T = unknown> (
     endpoint: string,

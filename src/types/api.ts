@@ -1,6 +1,6 @@
 // src/types/api.ts
 export interface ApiResponse<T = unknown> {
-    success: boolean;
+    // success: boolean;
     code: number;
     message: string;
     data?: T;

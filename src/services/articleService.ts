@@ -8,7 +8,7 @@ import {
 } from '@/types/article';
 import { ApiResponse, PaginatedResponse } from '@/types/api';
 // 基础 URL
-const article_URL = "/articles";
+const article_URL = "/article";
 class ArticleService {
   // 获取待办事项列表（支持分页和筛选）
   async getArticles (filters: ArticleFilters = {}): Promise<PaginatedResponse<Article>> {
